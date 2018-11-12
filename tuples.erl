@@ -7,7 +7,7 @@ convert({ inch, Y }) ->
 	{ centimeter, Y * 2.54 }.
 
 % c(tuples).
-% tuples:convert({ centimeter, 12 })
-% 30.48
-% tuples:convert(tuples:convert({ centimeter, 12 }))
-% 12.0
+% tuples:convert({ centimeter, 30.48 })
+% {inch,12.0}
+% tuples:convert(tuples:convert({ centimeter, 30.48 }))
+% {centimeter,30.48}
