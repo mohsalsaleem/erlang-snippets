@@ -6,6 +6,8 @@ get_fuel_prices() ->
 
 % .c(lsts).
 % lsts:get_fuel_prices().
-% [ First | Rest ] = lsts:get_fuel_prices().
-% First.
-% Rest.
+% [ F , S, T | New ] = lsts:get_fuel_prices().
+% F.
+% S.
+% T.
+% New.
