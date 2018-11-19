@@ -1,5 +1,5 @@
 -module(list_funcs).
--export([list_max/1, list_min/1]).
+-export([list_max/1, list_min/1, reverse_list/1]).
 
 list_max([Head | Rest]) ->
 	list_max(Rest, Head).
@@ -20,3 +20,11 @@ list_min([Head | Rest], ResultSoFar) when Head < ResultSoFar ->
 	list_min(Rest, Head);
 list_min([Head | Rest], ResultSoFar) ->
 	list_min(Rest, ResultSoFar).
+
+reverse_list(List) ->
+	reverse_list(List, []).
+
+reverse_list([Head | Rest], Reversed) ->
+	reverse_list(Rest, [ Head | Reversed ]);
+reverse_list([], Reversed) ->
+	Reversed.
