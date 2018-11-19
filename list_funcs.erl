@@ -1,5 +1,5 @@
 -module(list_funcs).
--export([list_max/1, list_min/1, reverse_list/1]).
+-export([list_max/1, list_min/1, reverse_list/1, mul_by/2]).
 
 list_max([Head | Rest]) ->
 	list_max(Rest, Head).
@@ -28,3 +28,12 @@ reverse_list([Head | Rest], Reversed) ->
 	reverse_list(Rest, [ Head | Reversed ]);
 reverse_list([], Reversed) ->
 	Reversed.
+
+mul_by(List, N) ->
+	list_mul_by(List, N).
+
+list_mul_by([Head | Rest], MulBy) ->
+	Multiplied = Head * MulBy,
+	[Multiplied | list_mul_by(Rest, MulBy)];
+list_mul_by([], MulBy) ->
+	[].
