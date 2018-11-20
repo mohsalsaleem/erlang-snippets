@@ -2,10 +2,9 @@
 -export([ping/2,pong/0, start/0]).
 
 ping(0, Pong_ID) ->
-	io:format("Shutting Down ping~n", []),
-	Pong_ID ! shuttingdown;
+	Pong_ID ! shuttingdown,
+	io:format("Shutting Down ping~n", []);
 ping(N, Pong_ID) ->
-	io:format("Sending Ping~n", []),
 	Pong_ID ! {ping, self()},
 	receive
 		pong ->
@@ -17,7 +16,6 @@ pong() ->
 	receive
 		{ping, Ping_ID} ->
 			io:format("Ping received~n", []),
-			io:format("Sending Pong~n", []),
 			Ping_ID ! pong,
 			pong();
 		shuttingdown ->
@@ -26,4 +24,4 @@ pong() ->
 
 start() ->
 	PID = spawn(pingpong, pong, []),
-	spawn(pingpong, ping, [2, PID]).
+	spawn(pingpong, ping, [3, PID]).
