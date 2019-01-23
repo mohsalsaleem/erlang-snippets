@@ -26,3 +26,9 @@ start_pong() ->
 
 start_ping(Pong_Node) ->
 	spawn(dis_ping_pong, ping, [5, Pong_Node]).
+
+% erl -sname ping
+% erl -sname pong
+% c(dis_ping_pong).
+% dis_ping_pong:start_pong().
+% dis_ping_pong:start_ping(pong@mohsal).
